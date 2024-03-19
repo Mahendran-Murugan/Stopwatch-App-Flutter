@@ -81,7 +81,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               const Center(
                 child: Text(
-                  "S T O P W A T C H",
+                  "S T O P  W A T C H",
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 28,
@@ -145,44 +145,55 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Expanded(
-                    child: RawMaterialButton(
+                    child: ElevatedButton(
                       onPressed: () => {
                         isStarted ? stop() : start(),
                       },
-                      shape: const StadiumBorder(
-                        side: BorderSide(color: Colors.blueGrey),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor:
+                            isStarted ? Colors.red : Colors.blue[300],
+                        shape: const CircleBorder(),
+                        padding: const EdgeInsets.all(25.0),
                       ),
-                      child: Text(
-                        isStarted ? "Stop" : "Start",
-                        style: const TextStyle(
-                          color: Colors.black,
-                        ),
+                      child: Icon(
+                        isStarted ? Icons.pause : Icons.play_arrow_rounded,
+                        color: Colors.white,
                       ),
                     ),
                   ),
                   const SizedBox(
-                    width: 10,
+                    width: 20,
                   ),
-                  IconButton(
-                    onPressed: () => {addLaps()},
-                    icon: const Icon(Icons.flag),
+                  ElevatedButton(
+                    onPressed: () => {
+                      addLaps(),
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.lightBlueAccent,
+                      shape: const CircleBorder(),
+                      padding: const EdgeInsets.all(25.0),
+                    ),
+                    child: const Icon(
+                      Icons.flag_rounded,
+                      color: Colors.white,
+                    ),
                   ),
                   const SizedBox(
-                    width: 10,
+                    width: 20,
                   ),
                   Expanded(
-                    child: RawMaterialButton(
+                    child: ElevatedButton(
                       onPressed: () => {
                         reset(),
                       },
-                      shape: const StadiumBorder(
-                        side: BorderSide(color: Colors.blueGrey),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue[300],
+                        shape: const CircleBorder(),
+                        padding: const EdgeInsets.all(25.0),
                       ),
-                      child: const Text(
-                        "Reset",
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
+                      child: const Icon(
+                        Icons.refresh_rounded,
+                        color: Colors.white,
                       ),
                     ),
                   ),
